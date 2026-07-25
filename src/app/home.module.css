@@ -1,0 +1,61 @@
+.section { padding: 76px 0 96px; }
+
+.lead {
+  font-size: clamp(17px, 2vw, 21px);
+  max-width: 52ch;
+  margin: 32px 0 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px;
+  margin-top: 64px;
+  padding-top: 36px;
+  border-top: 1px solid var(--hairline-10);
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ink);
+}
+.statSuffix { color: var(--coral); }
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 8px;
+}
+
+.brands { margin-top: 52px; }
+
+.brandRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 16px;
+}
+
+.pill {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  padding: 7px 14px;
+  border: 1px solid var(--hairline-15);
+  border-radius: var(--r-pill);
+}

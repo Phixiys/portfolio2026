@@ -1,0 +1,43 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#48493f0d 1px, transparent 1px),
+    linear-gradient(90deg, #48493f0d 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 70% 20%, #000, transparent 75%);
+  mask-image: radial-gradient(circle at 70% 20%, #000, transparent 75%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.blobCoral {
+  top: -140px;
+  right: -100px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #E8887340, transparent 68%);
+  filter: blur(30px);
+  animation: drift1 22s ease-in-out infinite;
+}
+
+.blobSlate {
+  bottom: -160px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #5C6D7033, transparent 68%);
+  filter: blur(34px);
+  animation: drift2 27s ease-in-out infinite;
+}

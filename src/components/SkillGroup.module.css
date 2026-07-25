@@ -1,0 +1,19 @@
+.label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--coral);
+  margin-bottom: 14px;
+}
+.items { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  padding: 7px 13px;
+  border: 1px solid var(--hairline-15);
+  border-radius: var(--r-chip);
+}

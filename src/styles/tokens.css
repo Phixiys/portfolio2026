@@ -1,0 +1,39 @@
+:root {
+  /* Colors (README §Design Tokens) */
+  --bg: #F6F3F1;
+  --ink: #484A47;
+  --slate: #5C6D70;
+  --coral: #E88873;
+  --coral-dark: #A37774;
+  --sand: #E0AC9D;
+
+  --surface-40: #ffffff66;
+  --surface-50: #ffffff80;
+  --surface-80: #ffffffcc;
+
+  --hairline-10: #48493f1a;
+  --hairline-15: #48493f26;
+  --hairline-25: #48493f40;
+  --tag-bg: #5c6d7014;
+  --coral-tint: #e888731a;
+  --coral-border-hover: #E8887366;
+
+  /* Layout */
+  --content-max: 1080px;
+  --content-pad: 28px;
+
+  /* Radius */
+  --r-card: 14px;
+  --r-btn: 10px;
+  --r-btn-lg: 12px;
+  --r-pill: 999px;
+  --r-logo: 11px;
+  --r-chip: 8px;
+  --r-tag: 6px;
+  --r-portrait: 16px;
+
+  /* Fonts (wired via next/font variables in layout) */
+  --font-display: var(--font-oswald), "Oswald", sans-serif;
+  --font-body: var(--font-nunito), "Nunito", system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), "JetBrains Mono", monospace;
+}

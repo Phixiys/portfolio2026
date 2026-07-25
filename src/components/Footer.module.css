@@ -1,0 +1,18 @@
+.footer {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--hairline-10);
+  padding: 32px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left, .right {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.left { color: var(--slate); }
+.right { color: var(--coral-dark); }

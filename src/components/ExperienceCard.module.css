@@ -1,0 +1,86 @@
+.card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  padding: 30px 26px;
+  border: 1px solid var(--hairline-10);
+  border-radius: var(--r-card);
+  margin-bottom: 16px;
+  background: var(--surface-40);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card:hover {
+  border-color: var(--coral-border-hover);
+  transform: translateX(4px);
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--coral);
+  font-weight: 500;
+}
+.period {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--slate);
+  margin-top: 6px;
+}
+.place {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--slate);
+  margin-top: 12px;
+}
+.mode {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--coral-dark);
+  margin-top: 4px;
+}
+
+.company {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+}
+.role {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--slate);
+  margin-top: 3px;
+}
+.summary {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 14px 0 16px;
+  max-width: 60ch;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--slate);
+  background: var(--tag-bg);
+  padding: 5px 11px;
+  border-radius: var(--r-tag);
+}
+
+@media (max-width: 640px) {
+  .card { grid-template-columns: 1fr; gap: 16px; }
+}

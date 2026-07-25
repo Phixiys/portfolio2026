@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#F6F3F1}
+  a{color:#E88873;text-decoration:none}
+  a:hover{color:#A37774}
+  ::selection{background:#E0AC9D;color:#484A47}
+  @keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.08)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,50px) scale(1.12)}100%{transform:translate(0,0) scale(1)}}
+  @keyframes caretblink{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F6F3F1;color:#484A47;font-family:'Nunito',system-ui,sans-serif;position:relative;overflow-x:hidden">
+
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(#48493f0d 1px,transparent 1px),linear-gradient(90deg,#48493f0d 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 70% 20%,#000,transparent 75%)"></div>
+    <div style="position:absolute;top:-140px;right:-100px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#E8887340,transparent 68%);filter:blur(30px);animation:drift1 22s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-160px;left:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,#5C6D7033,transparent 68%);filter:blur(34px);animation:drift2 27s ease-in-out infinite"></div>
+  </div>
+
+  <nav style="position:sticky;top:0;z-index:20;background:#F6F3F1cc;backdrop-filter:blur(12px);border-bottom:1px solid #48493f1a">
+    <div style="max-width:1080px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;background:none;border:none;cursor:pointer;padding:0">
+        <span style="width:40px;height:40px;border-radius:11px;border:1.5px solid #E88873;background:#e888731a;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;color:#E88873;font-weight:500;font-size:15px">&lt;/&gt;</span>
+        <span style="font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;letter-spacing:0.02em;color:#484A47">SASA RISTIC</span>
+      </button>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;gap:4px">
+          <button onClick="{{ goHome }}" style-hover="color:#E88873" style="background:none;border:none;cursor:pointer;padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#5C6D70;transition:color .2s">HOME<span style="{{ barHome }}"></span></button>
+          <button onClick="{{ goWork }}" style-hover="color:#E88873" style="background:none;border:none;cursor:pointer;padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#5C6D70;transition:color .2s">WORK<span style="{{ barWork }}"></span></button>
+          <button onClick="{{ goAbout }}" style-hover="color:#E88873" style="background:none;border:none;cursor:pointer;padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#5C6D70;transition:color .2s">ABOUT<span style="{{ barAbout }}"></span></button>
+          <button onClick="{{ goContact }}" style-hover="color:#E88873" style="background:none;border:none;cursor:pointer;padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#5C6D70;transition:color .2s">CONTACT<span style="{{ barContact }}"></span></button>
+        </div>
+        <button onClick="{{ downloadResume }}" style-hover="background:#A37774" style="margin-left:8px;background:#E88873;color:#F6F3F1;border:none;cursor:pointer;padding:10px 18px;border-radius:9px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;transition:background .2s">Résumé ↓</button>
+      </div>
+    </div>
+  </nav>
+
+  <main style="position:relative;z-index:10;max-width:1080px;margin:0 auto;padding:0 28px">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <section data-page style="padding:76px 0 96px">
+        <div data-hero style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#E88873;margin-bottom:26px">Senior Frontend Engineer · Stockholm, SE</div>
+        <h1 data-hero style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(42px,7.4vw,86px);line-height:0.96;letter-spacing:0.005em;margin:0;color:#484A47;max-width:15ch;min-height:2.9em">{{ typed }}<span aria-hidden="true" style="display:inline-block;width:0.5em;height:0.86em;transform:translateY(0.06em);margin-left:0.06em;background:#E88873;animation:caretblink 1s step-end infinite"></span></h1>
+        <p data-hero style="font-family:'Nunito',sans-serif;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#5C6D70;max-width:52ch;margin:32px 0 0">Interfaces that feel considered, fast, and a little bit warm. Eleven years building digital products for some of Sweden's most demanding brands — always starting from the business problem, not the code.</p>
+        <div data-hero style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
+          <button onClick="{{ goWork }}" style-hover="background:#484A47;color:#F6F3F1" style="background:#484A47;color:#F6F3F1;border:none;cursor:pointer;padding:15px 26px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;transition:transform .2s,background .2s">View experience →</button>
+          <button onClick="{{ downloadResume }}" style-hover="border-color:#E88873;color:#E88873" style="background:transparent;color:#484A47;border:1.5px solid #48493f40;cursor:pointer;padding:15px 26px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;transition:color .2s,border-color .2s">Download résumé ↓</button>
+        </div>
+        <div data-hero style="display:flex;flex-wrap:wrap;gap:44px;margin-top:64px;padding-top:36px;border-top:1px solid #48493f1a">
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:#484A47">11<span style="color:#E88873">+</span></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-top:8px">Years shipping</div>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:#484A47">8</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-top:8px">Companies</div>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:#484A47">20<span style="color:#E88873">+</span></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-top:8px">Brands delivered</div>
+          </div>
+        </div>
+        <div data-hero style="margin-top:52px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-bottom:16px">Selected brands</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 12px">
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="6">
+              <span style="font-family:'Oswald',sans-serif;font-weight:500;font-size:15px;letter-spacing:0.03em;color:#484A47;padding:7px 14px;border:1px solid #48493f26;border-radius:999px">{{ b }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+      <section data-page style="padding:68px 0 96px">
+        <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#E88873;margin-bottom:14px">02 — Experience</div>
+        <h2 data-reveal style="font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(34px,5vw,52px);line-height:1.02;margin:0 0 12px;color:#484A47">Eleven years, eight teams</h2>
+        <p data-reveal style="font-family:'Nunito',sans-serif;font-size:18px;line-height:1.6;color:#5C6D70;max-width:56ch;margin:0 0 52px">Senior frontend across real estate, SaaS, commerce and enterprise. Most recent first.</p>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <sc-for list="{{ experience }}" as="job" hint-placeholder-count="5">
+            <div data-reveal style-hover="border-color:#E8887366;transform:translateX(4px)" style="display:grid;grid-template-columns:180px 1fr;gap:28px;padding:30px 26px;border:1px solid #48493f1a;border-radius:14px;margin-bottom:16px;background:#ffffff66;transition:border-color .25s,transform .25s">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#E88873;font-weight:500">{{ job.dates }}</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.03em;color:#5C6D70;margin-top:6px">{{ job.period }}</div>
+                <div style="font-family:'Nunito',sans-serif;font-size:13px;color:#5C6D70;margin-top:12px">{{ job.place }}</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#A37774;margin-top:4px">{{ job.mode }}</div>
+              </div>
+              <div>
+                <h3 style="font-family:'Oswald',sans-serif;font-weight:600;font-size:26px;line-height:1.05;margin:0;color:#484A47">{{ job.company }}</h3>
+                <div style="font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:#5C6D70;margin-top:3px">{{ job.role }}</div>
+                <p style="font-family:'Nunito',sans-serif;font-size:16px;line-height:1.6;color:#484A47;margin:14px 0 16px;max-width:60ch">{{ job.summary }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ job.tags }}" as="t" hint-placeholder-count="3">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.03em;color:#5C6D70;background:#5c6d7014;padding:5px 11px;border-radius:6px">{{ t }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+      <section data-page style="padding:68px 0 96px">
+        <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#E88873;margin-bottom:14px">03 — About</div>
+        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start">
+          <div>
+            <h2 data-reveal style="font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(32px,4.4vw,48px);line-height:1.03;margin:0 0 24px;color:#484A47">Technology, in service of the problem</h2>
+            <p data-reveal style="font-family:'Nunito',sans-serif;font-size:18px;line-height:1.68;color:#484A47;margin:0 0 18px">I'm a Stockholm-based senior frontend engineer. For over a decade I've helped teams ship interfaces that are fast, accessible and genuinely useful — from enterprise platforms for Swedbank Pay and Vattenfall to SaaS products and international commerce experiences.</p>
+            <p data-reveal style="font-family:'Nunito',sans-serif;font-size:18px;line-height:1.68;color:#5C6D70;margin:0 0 18px">My throughline: never tech for tech's sake. I work close to the business and design to make sure each solution moves a real number — conversion, velocity, accessibility — not just a line of code. Lately that's meant leading WCAG accessibility work and driving a full TypeScript migration that paid off in team speed.</p>
+          </div>
+          <div data-reveal style="aspect-ratio:4/5;border-radius:16px;border:1px solid #48493f26;background-image:repeating-linear-gradient(135deg,#e0ac9d33 0 12px,#f6f3f1 12px 24px);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#A37774;text-align:center;padding:16px">PORTRAIT<br>drop image here</span>
+          </div>
+        </div>
+
+        <div data-reveal style="margin-top:72px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-bottom:24px">Skills & tools</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px">
+            <sc-for list="{{ skillGroups }}" as="grp" hint-placeholder-count="3">
+              <div>
+                <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:0.04em;color:#E88873;margin-bottom:14px">{{ grp.label }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ grp.items }}" as="s" hint-placeholder-count="4">
+                    <span style="font-family:'Nunito',sans-serif;font-weight:600;font-size:14px;color:#484A47;padding:7px 13px;border:1px solid #48493f26;border-radius:8px">{{ s }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div data-reveal style="margin-top:76px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5C6D70;margin-bottom:8px">What people say</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#A37774;margin-bottom:24px">// placeholders — swap for real quotes</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+            <sc-for list="{{ testimonials }}" as="q" hint-placeholder-count="2">
+              <figure style="margin:0;padding:28px;border-radius:14px;background:#ffffff80;border:1px solid #48493f1a">
+                <blockquote style="margin:0;font-family:'Nunito',sans-serif;font-size:17px;line-height:1.6;color:#484A47">"{{ q.quote }}"</blockquote>
+                <figcaption style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.03em;color:#5C6D70">— {{ q.who }}</figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+      <section data-page style="padding:96px 0 120px">
+        <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#E88873;margin-bottom:18px">04 — Contact</div>
+        <h2 data-reveal style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,8vw,96px);line-height:0.95;margin:0 0 32px;color:#484A47">Let's talk<span style="color:#E88873">.</span></h2>
+        <p data-reveal style="font-family:'Nunito',sans-serif;font-size:20px;line-height:1.6;color:#5C6D70;max-width:48ch;margin:0 0 44px">Hiring, contracting, or just want to compare notes on accessible frontend? I read everything.</p>
+        <div data-reveal style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px">
+          <a href="mailto:hej@ristic.nu" style-hover="border-color:#E88873" style="display:flex;flex-direction:column;gap:6px;padding:22px 26px;border:1px solid #48493f26;border-radius:14px;min-width:200px;transition:border-color .2s">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C6D70">Email</span>
+            <span style="font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;color:#484A47">hej@ristic.nu</span>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" style-hover="border-color:#E88873" style="display:flex;flex-direction:column;gap:6px;padding:22px 26px;border:1px solid #48493f26;border-radius:14px;min-width:200px;transition:border-color .2s">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C6D70">LinkedIn</span>
+            <span style="font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;color:#484A47">/in/sasaristic</span>
+          </a>
+          <a href="https://github.com/" target="_blank" style-hover="border-color:#E88873" style="display:flex;flex-direction:column;gap:6px;padding:22px 26px;border:1px solid #48493f26;border-radius:14px;min-width:200px;transition:border-color .2s">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#5C6D70">GitHub</span>
+            <span style="font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;color:#484A47">@sasaristic</span>
+          </a>
+        </div>
+        <button data-reveal onClick="{{ downloadResume }}" style-hover="background:#A37774" style="background:#E88873;color:#F6F3F1;border:none;cursor:pointer;padding:18px 34px;border-radius:12px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;transition:background .2s">Download résumé (PDF) ↓</button>
+      </section>
+    </sc-if>
+
+    <footer style="position:relative;z-index:10;border-top:1px solid #48493f1a;padding:32px 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#5C6D70">© 2026 Sasa Ristic · Stockholm</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#A37774">Built with care · &lt;/&gt;</span>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { page: 'home', typed: '' };
+  }
+
+  go(p){ if(this.state.page!==p) this.setState({page:p}); }
+
+  // Build the "typing code" sequence: type, make a mistake, backspace, retype.
+  buildTypeSeq(){
+    const seq = [];
+    let cur = '';
+    const rand = (a,b)=> a + Math.random()*(b-a);
+    const type = (text, min=48, max=104) => { for(const ch of text){ cur += ch; seq.push({ s: cur, d: rand(min,max) }); } };
+    const back = (n, d=42) => { for(let i=0;i<n;i++){ cur = cur.slice(0,-1); seq.push({ s: cur, d }); } };
+    const hold = (d) => { seq.push({ s: cur, d }); };
+
+    type('Frontend eng');
+    hold(160);
+    type('eneering', 60, 120);   // typo: "engeneering"
+    hold(420);                   // notice the mistake
+    back(8);                     // delete back to "Frontend eng"
+    hold(180);
+    type('ineering with an eye for de');
+    hold(140);
+    type('tials', 60, 120);      // typo: "detials"
+    hold(460);                   // notice it
+    back(4);                     // back to "...de t"? -> "det"
+    hold(160);
+    type('ail');
+    hold(120);
+    type('.');
+    return seq;
+  }
+
+  startTyping(){
+    if(this._typeTimer) clearTimeout(this._typeTimer);
+    const seq = this.buildTypeSeq();
+    this.setState({ typed: '' });
+    let i = 0;
+    const step = () => {
+      if(i >= seq.length) return;
+      const frame = seq[i++];
+      this.setState({ typed: frame.s });
+      this._typeTimer = setTimeout(step, frame.d);
+    };
+    this._typeTimer = setTimeout(step, 620); // let the hero entrance settle first
+  }
+
+  componentWillUnmount(){ if(this._typeTimer) clearTimeout(this._typeTimer); }
+
+  componentDidMount(){
+    const start = Date.now();
+    const tick = () => {
+      if(window.gsap && window.ScrollTrigger){
+        window.gsap.registerPlugin(window.ScrollTrigger);
+        this._ready = true;
+        this.animatePage(true);
+      } else if(Date.now()-start < 6000){ setTimeout(tick,60); }
+    };
+    tick();
+    this.startTyping();
+  }
+
+  componentDidUpdate(pp, ps){
+    if(ps.page !== this.state.page){
+      window.scrollTo(0,0);
+      this.animatePage(false);
+      if(this.state.page === 'home') this.startTyping();
+      else if(this._typeTimer) clearTimeout(this._typeTimer);
+    }
+  }
+
+  animatePage(first){
+    if(!this._ready) return;
+    const g = window.gsap;
+    window.ScrollTrigger.getAll().forEach(t=>t.kill());
+    g.fromTo('[data-page]', {opacity:0, y:16}, {opacity:1, y:0, duration:.5, ease:'power2.out'});
+    if(this.state.page === 'home'){
+      g.fromTo('[data-hero]', {opacity:0, y:26}, {opacity:1, y:0, duration:.7, stagger:.08, ease:'power3.out', delay:.05});
+    }
+    requestAnimationFrame(()=>{
+      g.utils.toArray('[data-reveal]').forEach((el)=>{
+        g.fromTo(el, {opacity:0, y:28}, {opacity:1, y:0, duration:.6, ease:'power2.out',
+          scrollTrigger:{ trigger:el, start:'top 90%', once:true }});
+      });
+      window.ScrollTrigger.refresh();
+    });
+  }
+
+  bar(p){ const cur=(this.state&&this.state.page)||'home'; return `display:block;height:2px;border-radius:2px;margin-top:5px;background:#E88873;transition:opacity .3s ease;opacity:${cur===p?1:0}`; }
+
+  renderVals(){
+    const page = (this.state && this.state.page) || 'home';
+    const experience = [
+      { company:'Svensk Fastighetsförmedling', role:'Senior Front End Developer', dates:'2023 — 2025', period:'2 yr 4 mo', place:'Stockholm, SE', mode:'Hybrid',
+        summary:'Modernised the digital platform for one of Sweden’s leading real-estate agencies. Led WCAG accessibility work to make it inclusive for every user, and partnered tightly with the business so each solution answered a real need.',
+        tags:['.NET','JSON','Accessibility','+8 more'] },
+      { company:'Netigate', role:'Senior Front End Developer', dates:'2021 — 2022', period:'1 yr 5 mo', place:'Stockholm, SE', mode:'On-site',
+        summary:'Built out a SaaS platform around the features customers actually asked for, and drove the migration to TypeScript — a bet on maintainability that paid off in velocity for the whole team.',
+        tags:['React','TypeScript','JSON','+8 more'] },
+      { company:'Improove', role:'Senior Front End Developer', dates:'2021', period:'9 mo', place:'Stockholm, SE', mode:'On-site',
+        summary:'Built commerce experiences on Salesforce Commerce Cloud for international brands like Urbanears, Marshall and Plantagen — focused on conversion and customer journey over technology for its own sake.',
+        tags:['Salesforce','JSON','+5 more'] },
+      { company:'Comprend', role:'Front End Developer', dates:'2019 — 2021', period:'1 yr 4 mo', place:'Stockholm, SE', mode:'On-site',
+        summary:'Delivered enterprise web solutions for heavyweight brands — Swedbank Pay, Vattenfall, Capio and Billerud — working cross-functionally with design and stakeholders to build the thing that solved the real problem.',
+        tags:['JavaScript','JSON','+7 more'] },
+      { company:'Rebel and Bird', role:'Front End Developer', dates:'2019', period:'6 mo', place:'Stockholm, SE', mode:'On-site',
+        summary:'Built a progressive web app for Match Center Media with performance and user experience at the core, working closely with stakeholders around real content and media needs.',
+        tags:['React','JSON','+4 more'] },
+      { company:'NoA Ignite Sweden', role:'Front End Developer', dates:'2018 — 2019', period:'6 mo', place:'Stockholm, SE', mode:'On-site',
+        summary:'Built large-scale digital platforms and e-commerce for brands like Coop, LeoVegas and Sector Alarm — enterprise scale, with a UX that actually converted.',
+        tags:['CSS','JSON'] },
+      { company:'tretton37', role:'Front End Developer', dates:'2017 — 2018', period:'1 yr 7 mo', place:'Greater Stockholm', mode:'On-site',
+        summary:'Developed applications within innovation and product-development projects, working closely with dev teams to deliver scalable, user-centred solutions.',
+        tags:['CSS','JSON'] },
+      { company:'ISPY AB', role:'Front End Developer', dates:'2014 — 2017', period:'2 yr 4 mo', place:'Greater Stockholm', mode:'On-site',
+        summary:'Designed and built digital solutions for finance and pension clients, focused on user experience and visual communication — an early lesson that technology and communication belong together.',
+        tags:['CSS','JSON'] },
+    ];
+
+    const skillGroups = [
+      { label:'Languages & frameworks', items:['TypeScript','React','JavaScript','.NET','HTML','CSS','JSON'] },
+      { label:'Platforms', items:['Salesforce Commerce Cloud','PWA','SaaS'] },
+      { label:'Practice', items:['Accessibility (WCAG)','Agile','UX','Performance'] },
+    ];
+
+    const testimonials = [
+      { quote:'Sasa raises the bar on everything he touches — accessibility, performance, and the small details that make a product feel finished.', who:'Placeholder · Engineering Manager' },
+      { quote:'A rare engineer who starts from the business problem. He made our whole frontend team faster.', who:'Placeholder · Product Lead' },
+    ];
+
+    const brands = ['Swedbank Pay','Vattenfall','Marshall','Urbanears','Coop','LeoVegas','Capio','Plantagen'];
+
+    return {
+      page,
+      isHome: page==='home',
+      isWork: page==='work',
+      isAbout: page==='about',
+      isContact: page==='contact',
+      typed: (this.state && this.state.typed) || '',
+      goHome: ()=>this.go('home'),
+      goWork: ()=>this.go('work'),
+      goAbout: ()=>this.go('about'),
+      goContact: ()=>this.go('contact'),
+      downloadResume: ()=>window.print(),
+      barHome: this.bar('home'),
+      barWork: this.bar('work'),
+      barAbout: this.bar('about'),
+      barContact: this.bar('contact'),
+      experience, skillGroups, testimonials, brands,
+    };
+  }
+}
+</script>
+</body>
+</html>

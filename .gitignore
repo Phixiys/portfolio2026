@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# verification screenshot artifacts
+/home-hero.png
+/work.png
+/about.png
+/contact.png
+/.playwright-mcp/
+
+# local agent/tooling state (not project source)
+/.claude-flow/
+/.claude/

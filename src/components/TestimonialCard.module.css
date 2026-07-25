@@ -1,0 +1,21 @@
+.card {
+  margin: 0;
+  padding: 28px;
+  border-radius: var(--r-card);
+  background: var(--surface-50);
+  border: 1px solid var(--hairline-10);
+}
+.quote {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.who {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--slate);
+}

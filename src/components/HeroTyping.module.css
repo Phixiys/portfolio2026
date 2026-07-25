@@ -1,0 +1,24 @@
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(42px, 7.4vw, 86px);
+  line-height: 0.96;
+  letter-spacing: 0.005em;
+  margin: 0;
+  color: var(--ink);
+  max-width: 15ch;
+  min-height: 2.9em; /* reserve space so layout doesn't jump while typing */
+}
+
+.period { color: var(--coral); }
+
+.caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.86em;
+  transform: translateY(0.06em);
+  margin-left: 0.06em;
+  background: var(--coral);
+  animation: caretblink 1s step-end infinite;
+}

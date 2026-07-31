@@ -1,15 +1,28 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Portrait from '@/components/Portrait';
 import SkillGroup from '@/components/SkillGroup';
 import TestimonialCard from '@/components/TestimonialCard';
-import { site } from '@/content/site';
-import { skillGroups } from '@/content/skills';
-import { testimonials } from '@/content/testimonials';
+import { getSite } from '@/content/site';
+import { getSkillGroups } from '@/content/skills';
+import { getTestimonials } from '@/content/testimonials';
+import { isLocale, altLanguages } from '@/i18n/config';
 import shared from '@/styles/shared.module.css';
 import styles from './about.module.css';
 
-export const metadata = { title: 'About — Sasa Ristic' };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const title = locale === 'sv' ? 'Om mig — Sasa Ristic' : 'About — Sasa Ristic';
+  return { title, alternates: { canonical: `/${locale}/about`, languages: altLanguages('about') } };
+}
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const site = getSite(locale);
+  const skillGroups = getSkillGroups(locale);
+  const testimonials = getTestimonials(locale);
+
   return (
     <section data-page className={styles.section}>
       <div data-reveal className={shared.eyebrow}>
@@ -31,7 +44,7 @@ export default function AboutPage() {
       </div>
 
       <div data-reveal className={styles.block}>
-        <div className={styles.sectionLabel}>Skills &amp; tools</div>
+        <div className={styles.sectionLabel}>{site.ui.skillsTitle}</div>
         <div className={styles.skillsGrid}>
           {skillGroups.map((g) => (
             <SkillGroup key={g.label} group={g} />
@@ -40,8 +53,8 @@ export default function AboutPage() {
       </div>
 
       <div data-reveal className={styles.blockTestimonials}>
-        <div className={`${styles.sectionLabel} ${styles.sectionLabelTight}`}>What people say</div>
-        <div className={styles.placeholderNote}>{'// placeholders — swap for real quotes'}</div>
+        <div className={`${styles.sectionLabel} ${styles.sectionLabelTight}`}>{site.ui.testimonialsTitle}</div>
+        <div className={styles.placeholderNote}>{site.ui.testimonialsNote}</div>
         <div className={styles.testimonialGrid}>
           {testimonials.map((t, i) => (
             <TestimonialCard key={i} item={t} />

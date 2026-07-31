@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { site } from '@/content/site';
+import type { Locale } from '@/i18n/config';
 import { useReducedMotion } from '@/lib/useReducedMotion';
 import styles from './HeroTyping.module.css';
 
 type Frame = { s: string; d: number };
 
 // Build the "typing code" sequence: type, make a mistake, backspace, retype.
-// Mirrors the design prototype exactly (README §Hero typing animation).
-function buildTypeSeq(): Frame[] {
+// One scripted variant per locale so the typo/retype beat feels natural in each.
+function buildTypeSeq(locale: Locale): Frame[] {
   const seq: Frame[] = [];
   let cur = '';
   const rand = (a: number, b: number) => a + Math.random() * (b - a);
@@ -27,6 +27,21 @@ function buildTypeSeq(): Frame[] {
   };
   const hold = (d: number) => seq.push({ s: cur, d });
 
+  if (locale === 'sv') {
+    // "Frontendutveckling med öga för detaljer."
+    type('Frontendutveckling med öga för det');
+    hold(140);
+    type('ajler', 60, 120); // typo: "detajler"
+    hold(460); // notice it
+    back(5); // back to "det"
+    hold(160);
+    type('aljer'); // -> "detaljer"
+    hold(120);
+    type('.');
+    return seq;
+  }
+
+  // en — "Frontend engineering with an eye for detail."
   type('Frontend eng');
   hold(160);
   type('eneering', 60, 120); // typo: "engeneering"
@@ -39,32 +54,39 @@ function buildTypeSeq(): Frame[] {
   hold(460); // notice it
   back(4); // back to "det"
   hold(160);
-  type('ail');
+  type('ails');
   hold(120);
   type('.');
   return seq;
 }
 
 /** Renders the hero H1 with the scripted typing animation and a blinking caret.
- *  Restarts whenever `runKey` changes (e.g. navigating back to Home). */
-export default function HeroTyping({ runKey }: { runKey?: string | number }) {
+ *  Loops forever: types the sentence, holds it, then retypes. */
+export default function HeroTyping({ locale, finalText }: { locale: Locale; finalText: string }) {
   const reduced = useReducedMotion();
-  const final = site.heroFinalText;
   const [typed, setTyped] = useState('');
 
   useEffect(() => {
     if (reduced) {
-      setTyped(final);
+      setTyped(finalText);
       return;
     }
 
-    const seq = buildTypeSeq();
+    const seq = buildTypeSeq(locale);
     let i = 0;
     let timer: ReturnType<typeof setTimeout>;
     setTyped('');
 
     const step = () => {
-      if (i >= seq.length) return;
+      if (i >= seq.length) {
+        // Reached the end — let the finished sentence sit, then loop.
+        timer = setTimeout(() => {
+          i = 0;
+          setTyped('');
+          timer = setTimeout(step, 400); // brief beat before retyping
+        }, 2600);
+        return;
+      }
       const frame = seq[i++];
       setTyped(frame.s);
       timer = setTimeout(step, frame.d);
@@ -72,7 +94,7 @@ export default function HeroTyping({ runKey }: { runKey?: string | number }) {
     timer = setTimeout(step, 620); // let the hero entrance settle first
 
     return () => clearTimeout(timer);
-  }, [reduced, final, runKey]);
+  }, [reduced, locale, finalText]);
 
   // Split a trailing period so it can be coral (matches final "detail.").
   const hasPeriod = typed.endsWith('.');

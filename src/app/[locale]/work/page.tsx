@@ -1,12 +1,24 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import ExperienceCard from '@/components/ExperienceCard';
-import { experience } from '@/content/experience';
-import { site } from '@/content/site';
+import { getExperience } from '@/content/experience';
+import { getSite } from '@/content/site';
+import { isLocale, altLanguages } from '@/i18n/config';
 import shared from '@/styles/shared.module.css';
 import styles from './work.module.css';
 
-export const metadata = { title: 'Work — Sasa Ristic' };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const title = locale === 'sv' ? 'Arbete — Sasa Ristic' : 'Work — Sasa Ristic';
+  return { title, alternates: { canonical: `/${locale}/work`, languages: altLanguages('work') } };
+}
 
-export default function WorkPage() {
+export default async function WorkPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const site = getSite(locale);
+  const experience = getExperience(locale);
+
   return (
     <section data-page className={styles.section}>
       <div data-reveal className={shared.eyebrow}>

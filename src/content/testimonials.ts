@@ -1,7 +1,9 @@
+import type { Locale } from '@/i18n/config';
+
 export type Testimonial = { quote: string; who: string };
 
 // ❗ placeholders — swap for real quotes + attributions before launch.
-export const testimonials: Testimonial[] = [
+const en: Testimonial[] = [
   {
     quote:
       'Sasa raises the bar on everything he touches — accessibility, performance, and the small details that make a product feel finished.',
@@ -13,3 +15,22 @@ export const testimonials: Testimonial[] = [
     who: 'Placeholder · Product Lead',
   },
 ];
+
+const sv: Testimonial[] = [
+  {
+    quote:
+      'Sasa höjer ribban på allt han rör vid — tillgänglighet, prestanda och de små detaljerna som får en produkt att kännas färdig.',
+    who: 'Platshållare · Engineering Manager',
+  },
+  {
+    quote:
+      'En ovanlig utvecklare som utgår från affärsproblemet. Han gjorde hela vårt frontendteam snabbare.',
+    who: 'Platshållare · Product Lead',
+  },
+];
+
+export const testimonialsByLocale: Record<Locale, Testimonial[]> = { sv, en };
+
+export function getTestimonials(locale: Locale): Testimonial[] {
+  return testimonialsByLocale[locale];
+}

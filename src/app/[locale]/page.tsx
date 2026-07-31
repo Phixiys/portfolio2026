@@ -1,29 +1,35 @@
 import HeroTyping from '@/components/HeroTyping';
 import Button from '@/components/ui/Button';
-import { site } from '@/content/site';
+import { getSite } from '@/content/site';
 import { brands } from '@/content/brands';
+import { isLocale } from '@/i18n/config';
+import { notFound } from 'next/navigation';
 import shared from '@/styles/shared.module.css';
 import styles from './home.module.css';
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const site = getSite(locale);
+
   return (
     <section data-page className={styles.section}>
       <div data-hero className={shared.eyebrowHome}>
         {site.eyebrow}
       </div>
 
-      <HeroTyping />
+      <HeroTyping locale={locale} finalText={site.heroFinalText} />
 
       <p data-hero className={`${shared.lead} ${styles.lead}`}>
         {site.heroLead}
       </p>
 
       <div data-hero className={styles.actions}>
-        <Button href="/work" variant="ink">
-          View experience →
+        <Button href={`/${locale}/work`} variant="ink">
+          {site.ui.viewExperience}
         </Button>
         <Button download={site.resumePath} variant="outline">
-          Download résumé ↓
+          {site.ui.downloadResume}
         </Button>
       </div>
 
@@ -40,7 +46,7 @@ export default function HomePage() {
       </div>
 
       <div data-hero className={styles.brands}>
-        <div className={shared.monoLabel}>Selected brands</div>
+        <div className={shared.monoLabel}>{site.ui.selectedBrands}</div>
         <div className={styles.brandRow}>
           {brands.map((b) => (
             <span key={b} className={styles.pill}>

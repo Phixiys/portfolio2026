@@ -7,4 +7,5 @@ export const brands: string[] = [
   'LeoVegas',
   'Capio',
   'Plantagen',
+  'Svensk Fastighetsförmedling'
 ];

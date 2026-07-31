@@ -1,12 +1,23 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import ContactCard from '@/components/ContactCard';
 import Button from '@/components/ui/Button';
-import { site } from '@/content/site';
+import { getSite } from '@/content/site';
+import { isLocale, altLanguages } from '@/i18n/config';
 import shared from '@/styles/shared.module.css';
 import styles from './contact.module.css';
 
-export const metadata = { title: 'Contact — Sasa Ristic' };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const title = locale === 'sv' ? 'Kontakt — Sasa Ristic' : 'Contact — Sasa Ristic';
+  return { title, alternates: { canonical: `/${locale}/contact`, languages: altLanguages('contact') } };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const site = getSite(locale);
+
   return (
     <section data-page className={styles.section}>
       <div data-reveal className={`${shared.eyebrow} ${styles.eyebrow}`}>
@@ -28,7 +39,7 @@ export default function ContactPage() {
 
       <div data-reveal>
         <Button download={site.resumePath} variant="coral" size="lg">
-          Download résumé (PDF) ↓
+          {site.ui.downloadResumeLg}
         </Button>
       </div>
     </section>

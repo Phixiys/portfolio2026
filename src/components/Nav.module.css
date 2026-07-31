@@ -87,6 +87,26 @@
 }
 .barActive { opacity: 1; }
 
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 1px solid var(--hairline-10);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.lang {
+  padding: 4px 6px;
+  color: var(--slate);
+  transition: color 0.2s;
+}
+.lang:hover { color: var(--coral); }
+.langActive { color: var(--ink); font-weight: 600; }
+.langSep { color: var(--hairline-10); }
+
 .resume {
   margin-left: 8px;
   background: var(--coral);

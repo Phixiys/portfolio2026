@@ -1,4 +1,4 @@
-# Sasa Ristic — Personal Recruiter Portfolio Site
+# Sasa Ristic — Personal Portfolio Site 2026
 
 ## Overview
 A personal portfolio site for **Sasa Ristic**, a Stockholm-based Senior Frontend Engineer. Primary audience: **recruiters**. The core job of the page is to let a recruiter **skim experience fast** and **download the résumé (PDF)**. It is a multi-page (client-side routed) site: Home, Work, About, Contact — plus a persistent nav and footer.

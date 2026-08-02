@@ -31,6 +31,7 @@ export type Site = {
     skillsTitle: string;
     testimonialsTitle: string;
     testimonialsNote: string;
+    menuAria: string;
   };
 };
 
@@ -106,6 +107,7 @@ const sv: Site = {
     skillsTitle: 'Färdigheter & verktyg',
     testimonialsTitle: 'Vad andra säger',
     testimonialsNote: '// platshållare — byt mot riktiga citat',
+    menuAria: 'Meny',
   },
 };
 
@@ -167,6 +169,7 @@ const en: Site = {
     skillsTitle: 'Skills & tools',
     testimonialsTitle: 'What people say',
     testimonialsNote: '// placeholders — swap for real quotes',
+    menuAria: 'Menu',
   },
 };
 

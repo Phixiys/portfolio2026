@@ -22,8 +22,8 @@ const en: Role[] = [
     place: 'Stockholm, SE',
     mode: 'Hybrid',
     summary:
-      'Modernised the digital platform for one of Sweden’s leading real-estate agencies. Led WCAG accessibility work to make it inclusive for every user, and partnered tightly with the business so each solution answered a real need.',
-    tags: ['.NET', 'JSON', 'Accessibility', '+8 more'],
+      'Modernized digital platforms for one of Sweden’s leading real estate agencies—with the customer at the heart of every step. Led accessibility initiatives in accordance with WCAG to make the platform inclusive for all users. Worked closely with the business to ensure every technical solution addressed a real business need—not just added another line of code.',
+    tags: ['.NET', 'JSON', 'Accessibility', 'JavaScript', 'ES6', 'TypeScript', 'CSS', 'LESS', 'HTML5', 'WCAG'  ],
   },
   {
     company: 'Netigate',
@@ -34,7 +34,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Built out a SaaS platform around the features customers actually asked for, and drove the migration to TypeScript — a bet on maintainability that paid off in velocity for the whole team.',
-    tags: ['React', 'TypeScript', 'JSON', '+8 more'],
+    tags: ['React', 'TypeScript', 'JSON', 'Redux', 'ES6', 'CSS', 'Cypress', 'Jest', 'HTML5'],
   },
   {
     company: 'Improove',
@@ -45,7 +45,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Built commerce experiences on Salesforce Commerce Cloud for international brands like Urbanears, Marshall and Plantagen — focused on conversion and customer journey over technology for its own sake.',
-    tags: ['Salesforce', 'JSON', '+5 more'],
+    tags: ['Salesforce', 'JSON', 'ES6', 'HTML5', 'jQuery', 'CSS'],
   },
   {
     company: 'Comprend',
@@ -56,7 +56,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Delivered enterprise web solutions for heavyweight brands — Swedbank Pay, Vattenfall, Capio and Billerud — working cross-functionally with design and stakeholders to build the thing that solved the real problem.',
-    tags: ['JavaScript', 'JSON', '+7 more'],
+    tags: ['JavaScript', 'JSON', 'EpiServer', 'ES6', 'HTML5', 'CSS', 'TypeScript', 'LESS'],
   },
   {
     company: 'Rebel and Bird',
@@ -67,7 +67,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Built a progressive web app for Match Center Media with performance and user experience at the core, working closely with stakeholders around real content and media needs.',
-    tags: ['React', 'JSON', '+4 more'],
+    tags: ['React', 'JSON', 'ES6', 'HTML5', 'CSS', 'Contentful', 'Gatsby', 'GraphQL', 'LESS' ],
   },
   {
     company: 'NoA Ignite Sweden',
@@ -78,7 +78,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Built large-scale digital platforms and e-commerce for brands like Coop, LeoVegas and Sector Alarm — enterprise scale, with a UX that actually converted.',
-    tags: ['CSS', 'JSON'],
+    tags: ['JavaScript', 'TypeScript', 'EpiServer', 'JSON', 'CSS', 'Backbone JS'],
   },
   {
     company: 'tretton37',
@@ -89,7 +89,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Developed applications within innovation and product-development projects, working closely with dev teams to deliver scalable, user-centred solutions.',
-    tags: ['CSS', 'JSON'],
+    tags: ['React', 'TypeScript', '.NET', 'SCSS', 'LESS', 'CSS', 'JSON'],
   },
   {
     company: 'ISPY AB',
@@ -100,7 +100,7 @@ const en: Role[] = [
     mode: 'On-site',
     summary:
       'Designed and built digital solutions for finance and pension clients, focused on user experience and visual communication — an early lesson that technology and communication belong together.',
-    tags: ['CSS', 'JSON'],
+    tags: ['JavaScript', 'CoffeeScript', 'jQuery', 'PHP', 'SCSS', 'Wordpress', 'CSS', 'JSON'],
   },
 ];
 
@@ -113,8 +113,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'Hybrid',
     summary:
-      'Moderniserade den digitala plattformen för en av Sveriges ledande fastighetsmäklare. Ledde WCAG-arbetet för tillgänglighet så att den blev inkluderande för alla användare, och samarbetade tätt med affären så att varje lösning svarade mot ett verkligt behov.',
-    tags: ['.NET', 'JSON', 'Tillgänglighet', '+8 till'],
+      'Moderniserade digitala plattformar för en av Sveriges ledande fastighetsförmedlare — med kunden i fokus varje steg av vägen. Ledde tillgänglighetsarbetet enligt WCAG för att göra plattformen inkluderande för alla användare. Jobbar tätt med verksamheten för att säkerställa att varje teknisk lösning faktiskt löser ett affärsproblem, inte bara en kodrad.',
+    tags: ['.NET', 'JSON', 'Accessibility', 'JavaScript', 'ES6', 'TypeScript', 'CSS', 'LESS', 'HTML5', 'WCAG'  ],
   },
   {
     company: 'Netigate',
@@ -124,8 +124,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'På plats',
     summary:
-      'Byggde ut en SaaS-plattform utifrån de funktioner kunderna faktiskt efterfrågade, och drev migreringen till TypeScript — en satsning på underhållbarhet som gav utdelning i tempo för hela teamet.',
-    tags: ['React', 'TypeScript', 'JSON', '+8 till'],
+      'Byggde vidare på en SaaS-plattform med fokus på funktioner som kunderna faktiskt efterfrågade. Drev migreringen till TypeScript för att göra kodbasen mer hållbar och lättare att skala — ett beslut som betalade sig i utvecklingshastighet för hela teamet. Jobbade agilt med kontinuerligt fokus på användarupplevelse.',
+    tags: ['React', 'TypeScript', 'JSON', 'Redux', 'ES6', 'CSS', 'Cypress', 'Jest', 'HTML5'],
   },
   {
     company: 'Improove',
@@ -135,8 +135,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'På plats',
     summary:
-      'Byggde e-handelsupplevelser på Salesforce Commerce Cloud för internationella varumärken som Urbanears, Marshall och Plantagen — med fokus på konvertering och kundresa snarare än teknik för teknikens skull.',
-    tags: ['Salesforce', 'JSON', '+5 till'],
+      'Byggde digitala köpupplevelser inom Salesforce Commerce Cloud för internationella varumärken som Urbanears, Marshall och Plantagen. Fokus låg på affärsvärde och kundresa snarare än teknik för teknikens skull — nära samarbete med projektintressenter för att förstå vad som faktiskt drev konvertering.',
+    tags: ['Salesforce', 'JSON', 'ES6', 'HTML5', 'jQuery', 'CSS'],
   },
   {
     company: 'Comprend',
@@ -146,8 +146,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'På plats',
     summary:
-      'Levererade digitala enterprise-lösningar för tunga varumärken — Swedbank Pay, Vattenfall, Capio och Billerud — i tvärfunktionellt samarbete med design och intressenter för att bygga det som löste det verkliga problemet.',
-    tags: ['JavaScript', 'JSON', '+7 till'],
+      'Levererade enterprise-webblösningar för tunga varumärken som Swedbank Pay, Vattenfall, Capio och Billerud. Jobbade tvärfunktionellt med design och stakeholders — inte bara för att bygga rätt sak, utan för att bygga den sak som faktiskt löste kundens och affärens problem.',
+    tags: ['JavaScript', 'JSON', 'EpiServer', 'ES6', 'HTML5', 'CSS', 'TypeScript', 'LESS'],
   },
   {
     company: 'Rebel and Bird',
@@ -157,8 +157,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'På plats',
     summary:
-      'Byggde en progressiv webbapp för Match Center Media med prestanda och användarupplevelse i centrum, i nära samarbete med intressenter kring verkligt innehåll och mediebehov.',
-    tags: ['React', 'JSON', '+4 till'],
+      'Byggde en progressiv webbapplikation för Match Center Media med prestanda och användarupplevelse i fokus. Nära samarbete med stakeholders för att leverera lösningar anpassade efter verksamhetens faktiska innehålls- och mediebehov.',
+    tags: ['React', 'JSON', 'ES6', 'HTML5', 'CSS', 'Contentful', 'Gatsby', 'GraphQL', 'LESS' ],
   },
   {
     company: 'NoA Ignite Sweden',
@@ -168,8 +168,8 @@ const sv: Role[] = [
     place: 'Stockholm, SE',
     mode: 'På plats',
     summary:
-      'Byggde storskaliga digitala plattformar och e-handel för varumärken som Coop, LeoVegas och Sector Alarm — i enterprise-skala, med en UX som faktiskt konverterade.',
-    tags: ['CSS', 'JSON'],
+      'Byggde storskaliga digitala plattformar och e-handelslösningar för varumärken som Coop, LeoVegas och Sector Alarm. Tvärfunktionellt arbete i enterprise-miljö med fokus på skalbarhet och en användarupplevelse som faktiskt konverterade.',
+    tags: ['JavaScript', 'TypeScript', 'EpiServer', 'JSON', 'CSS', 'Backbone JS'],
   },
   {
     company: 'tretton37',
@@ -179,8 +179,8 @@ const sv: Role[] = [
     place: 'Storstockholm',
     mode: 'På plats',
     summary:
-      'Utvecklade applikationer inom innovations- och produktutvecklingsprojekt, i nära samarbete med utvecklingsteam för att leverera skalbara, användarcentrerade lösningar.',
-    tags: ['CSS', 'JSON'],
+      'Utvecklade digitala applikationer inom innovations- och produktutvecklingsprojekt. Samarbetade tätt med utvecklingsteam för att leverera skalbara, användarcentrerade lösningar snarare än teknik för teknikens skull.',
+    tags: ['React', 'TypeScript', '.NET', 'SCSS', 'LESS', 'CSS', 'JSON'],
   },
   {
     company: 'ISPY AB',
@@ -190,8 +190,8 @@ const sv: Role[] = [
     place: 'Storstockholm',
     mode: 'På plats',
     summary:
-      'Designade och byggde digitala lösningar för finans- och pensionskunder, med fokus på användarupplevelse och visuell kommunikation — en tidig läxa i att teknik och kommunikation hör ihop.',
-    tags: ['CSS', 'JSON'],
+      'Designade och utvecklade digitala lösningar för kunder inom finans och pension, med fokus på användarupplevelse och visuell kommunikation. Arbetade brett med webbproduktion och digital design för att stärka kundernas varumärke och digitala närvaro — en tidig lärdom i att teknik och kommunikation hänger ihop.',
+    tags: ['JavaScript', 'CoffeeScript', 'jQuery', 'PHP', 'SCSS', 'Wordpress', 'CSS', 'JSON'],
   },
 ];
 

@@ -53,13 +53,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </div>
 
       <div data-reveal className={styles.blockTestimonials}>
-        <div className={`${styles.sectionLabel} ${styles.sectionLabelTight}`}>{site.ui.testimonialsTitle}</div>
+        {/*<div className={`${styles.sectionLabel} ${styles.sectionLabelTight}`}>{site.ui.testimonialsTitle}</div>
         <div className={styles.placeholderNote}>{site.ui.testimonialsNote}</div>
         <div className={styles.testimonialGrid}>
           {testimonials.map((t, i) => (
             <TestimonialCard key={i} item={t} />
           ))}
-        </div>
+        </div>*/}
       </div>
     </section>
   );

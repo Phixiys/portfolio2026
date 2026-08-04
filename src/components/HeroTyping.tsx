@@ -29,7 +29,7 @@ function buildTypeSeq(locale: Locale): Frame[] {
 
   if (locale === 'sv') {
     // "Frontendutveckling med öga för detaljer."
-    type('Frontendutveckling med öga för det');
+    type('Utveckling med öga för det');
     hold(140);
     type('ajler', 60, 120); // typo: "detajler"
     hold(460); // notice it
@@ -42,7 +42,7 @@ function buildTypeSeq(locale: Locale): Frame[] {
   }
 
   // en — "Frontend engineering with an eye for detail."
-  type('Frontend eng');
+  type('Eng');
   hold(160);
   type('eneering', 60, 120); // typo: "engeneering"
   hold(420); // notice the mistake

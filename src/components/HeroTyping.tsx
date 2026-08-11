@@ -29,33 +29,36 @@ function buildTypeSeq(locale: Locale): Frame[] {
 
   if (locale === 'sv') {
     // "Frontendutveckling med öga för detaljer."
-    type('Utveckling med öga för det');
+    type('Jag bygger pro');
     hold(140);
-    type('ajler', 60, 120); // typo: "detajler"
+    type('teser', 60, 120); // typo: "detajler"
     hold(460); // notice it
     back(5); // back to "det"
     hold(160);
-    type('aljer'); // -> "detaljer"
+    type('dukter'); // -> "detaljer"
     hold(120);
-    type('.');
+    type(' som fungerar - ')
+    hold(50)
+    type('inte bara kod som komprimerar.')
+    hold(10)
+    back(10)
+    type('mpilerar.');
     return seq;
   }
 
-  // en — "Frontend engineering with an eye for detail."
-  type('Eng');
-  hold(160);
-  type('eneering', 60, 120); // typo: "engeneering"
-  hold(420); // notice the mistake
-  back(8); // delete back to "Frontend eng"
-  hold(180);
-  type('ineering with an eye for de');
+  // en — "I build products that work — not just code that compiles."
+  type('I build pro');
   hold(140);
-  type('tials', 60, 120); // typo: "detials"
-  hold(460); // notice it
-  back(4); // back to "det"
+  type('fets', 60, 120);
+  hold(460);
+  back(5);
   hold(160);
-  type('ails');
+  type('oducts');
   hold(120);
+  type(' that work - ', 60, 120);
+  hold(50); // notice it
+  type('not just code that compiles', 60, 120);
+  hold(160);
   type('.');
   return seq;
 }

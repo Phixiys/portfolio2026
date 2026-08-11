@@ -17,7 +17,7 @@ export type Site = {
   stats: Stat[];
   work: { eyebrow: string; title: string; intro: string };
   about: { eyebrow: string; title: string; paragraphs: string[]; portrait: string };
-  contact: { eyebrow: string; title: string; lead: string; channels: Channel[] };
+  contact: { eyebrow: string; title: string; lead: string[]; channels: Channel[] };
   resumePath: string;
   footer: { left: string; right: string };
   nav: NavItem[];
@@ -56,7 +56,7 @@ const sv: Site = {
   eyebrow: 'Senior frontendutvecklare · Stockholm, SE',
   heroFinalText: 'Frontendutveckling med öga för detaljer.',
   heroLead:
-    'Gränssnitt som känns genomtänkta, snabba och en aning varma. Elva år av att bygga digitala produkter för några av Sveriges mest krävande varumärken — alltid med utgångspunkt i affärsproblemet, inte koden.',
+    'Senior frontend-utvecklare i Stockholm. Tolv år av React, TypeScript och det betydligt svårare problemet: att lista ut vad kunden faktiskt behöver.',
   stats: [
     { value: '11', suffix: '+', label: 'År i branschen' },
     { value: '8', suffix: '', label: 'Företag' },
@@ -69,17 +69,23 @@ const sv: Site = {
   },
   about: {
     eyebrow: '03 — Om mig',
-    title: 'Teknik i problemets tjänst',
+    title: 'Det svåra i det här yrket har aldrig varit koden.',
     paragraphs: [
-      'Jag är en Stockholmsbaserad senior frontendutvecklare. I över ett decennium har jag hjälpt team att leverera gränssnitt som är snabba, tillgängliga och genuint användbara — från enterprise­plattformar för Swedbank Pay och Vattenfall till SaaS-produkter och internationella e-handelsupplevelser.',
-      'Min röda tråd: aldrig teknik för teknikens skull. Jag arbetar nära affären och designen för att varje lösning ska flytta en verklig siffra — konvertering, tempo, tillgänglighet — inte bara en rad kod. På sista tiden har det inneburit att leda WCAG-arbete för tillgänglighet och driva en full TypeScript-migrering som gav utdelning i teamets hastighet.',
+      'Jag har byggt frontend i tolv år — React, TypeScript, Next.js — på byråer och produktbolag. Någonstans på vägen märkte jag att de projekt som gick dåligt sällan sprack av tekniska skäl. De sprack för att ingen satt sig ner med kunden tillräckligt tidigt och rett ut vad de egentligen försökte åstadkomma.',
+      'Så det blev det jag blev bra på. Jag kan gå tillräckligt djupt med utvecklare för att vara till nytta, och jag kan sitta mitt emot en beställare och förklara en teknisk avvägning i termer av vad den kostar och vad den ger. Mitt bästa arbete har mestadels hänt i det glappet.',
+      'Jag har byggt e-handel för Urbanears, Marshall och Plantagen, enterprise-plattformar för Swedbank Pay, Vattenfall och Capio, och lett tillgänglighetsarbetet på Svensk Fastighetsförmedling — gjort en plattform som tusentals människor använder varje dag användbar för alla, inte bara för de flesta.',
+      'Numera tar jag egna uppdrag. Jag arbetar på svenska, engelska och serbiska, från Stockholm.',
+      'När jag inte sitter framför en skärm tränar och instruerar jag brasiliansk jiu-jitsu, vilket visar sig vara utmärkt träning i att tålmodigt förklara komplicerade saker för folk som är övertygade om att de redan förstått.'
     ],
     portrait: shared.portrait,
   },
   contact: {
     eyebrow: '04 — Kontakt',
-    title: 'Låt oss prata',
-    lead: 'Rekrytering, konsultuppdrag, eller vill du bara byta tankar om tillgänglig frontend? Jag läser allt.',
+    title: 'Hör av dig',
+    lead: [
+      'Har du något på gång som behöver en frontend-utvecklare som frågar varför innan hur? Det vill jag höra om. ',
+      'Tillgänglig för konsultuppdrag och öppen för rätt anställning — särskilt där teknik och kundrelation möts.'
+    ],
     channels: [
       { label: 'E-post', ...shared.channels[0] },
       { label: 'LinkedIn', ...shared.channels[1] },
@@ -118,7 +124,7 @@ const en: Site = {
   eyebrow: 'Senior Frontend Engineer · Stockholm, SE',
   heroFinalText: 'Frontend engineering with an eye for detail.',
   heroLead:
-    "Interfaces that feel considered, fast, and a little bit warm. Eleven years building digital products for some of Sweden's most demanding brands — always starting from the business problem, not the code.",
+    "Senior frontend developer in Stockholm. Twelve years of JavaScript and the far harder problem of working out what a client actually needs.",
   stats: [
     { value: '11', suffix: '+', label: 'Years shipping' },
     { value: '8', suffix: '', label: 'Companies' },
@@ -131,17 +137,23 @@ const en: Site = {
   },
   about: {
     eyebrow: '03 — About',
-    title: 'Technology, in service of the problem',
+    title: 'The hardest part of this job was never the code.',
     paragraphs: [
-      "I'm a Stockholm-based senior frontend engineer. For over a decade I've helped teams ship interfaces that are fast, accessible and genuinely useful — from enterprise platforms for Swedbank Pay and Vattenfall to SaaS products and international commerce experiences.",
-      "My throughline: never tech for tech's sake. I work close to the business and design to make sure each solution moves a real number — conversion, velocity, accessibility — not just a line of code. Lately that's meant leading WCAG accessibility work and driving a full TypeScript migration that paid off in team speed.",
+      "I've spent twelve years building frontend — React, TypeScript, Next.js — across agencies and product companies. Somewhere in the middle of that I noticed that the projects that went badly rarely failed on technical grounds. They failed because nobody sat down with the client early enough to work out what they were actually trying to do.",
+      "So that became the thing I got good at. I can go deep enough with engineers to be useful, and I can sit across from a stakeholder and explain a technical trade-off in terms of what it costs and what it buys them. Most of my best work has happened in that gap.",
+      "I've built e-commerce for Urbanears, Marshall and Plantagen, enterprise platforms for Swedbank Pay, Vattenfall and Capio, and led the accessibility work at Svensk Fastighetsförmedling — making a platform that thousands of people use every day work for all of them, not just most of them.",
+      "These days I take on my own clients. I work in Swedish, English and Serbian, out of Stockholm.",
+      "When I'm not in front of a screen I teach Brazilian jiu-jitsu, which turns out to be excellent training for explaining complicated things patiently to people who are convinced they already understand."
     ],
     portrait: shared.portrait,
   },
   contact: {
     eyebrow: '04 — Contact',
     title: "Let's talk",
-    lead: 'Hiring, contracting, or just want to compare notes on accessible frontend? I read everything.',
+    lead: [
+      "Working on something that needs a frontend developer who'll ask why before asking how? I'd like to hear about it.",
+      " Available for consulting work and open to the right permanent role — particularly where engineering and client relationships meet."
+    ],
     channels: [
       { label: 'Email', ...shared.channels[0] },
       { label: 'LinkedIn', ...shared.channels[1] },

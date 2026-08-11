@@ -1,4 +1,5 @@
 export const brands: string[] = [
+  'Vanity Clinics',
   'Swedbank Pay',
   'Vattenfall',
   'Marshall',

@@ -71,8 +71,8 @@ const sv: Site = {
     eyebrow: '03 — Om mig',
     title: 'Det svåra i det här yrket har aldrig varit koden.',
     paragraphs: [
-      'Jag har byggt frontend i tolv år — React, TypeScript, Next.js — på byråer och produktbolag. Någonstans på vägen märkte jag att de projekt som gick dåligt sällan sprack av tekniska skäl. De sprack för att ingen satt sig ner med kunden tillräckligt tidigt och rett ut vad de egentligen försökte åstadkomma.',
-      'Så det blev det jag blev bra på. Jag kan gå tillräckligt djupt med utvecklare för att vara till nytta, och jag kan sitta mitt emot en beställare och förklara en teknisk avvägning i termer av vad den kostar och vad den ger. Mitt bästa arbete har mestadels hänt i det glappet.',
+      'Jag har byggt frontend i tolv år på byråer och produktbolag. Någonstans på vägen märkte jag att de projekt som gick dåligt sällan sprack av tekniska skäl. De sprack för att ingen satt sig ner med kunden tillräckligt tidigt och rett ut vad de egentligen försökte åstadkomma.',
+      'Så det var väl just det jag blev bra på. Jag kan gå tillräckligt djupt med utvecklare för att vara till nytta, och jag kan sitta mitt emot en beställare och förklara en teknisk avvägning i termer av vad den kostar och vad den ger. Mitt bästa arbete har mestadels hänt i det glappet.',
       'Jag har byggt e-handel för Urbanears, Marshall och Plantagen, enterprise-plattformar för Swedbank Pay, Vattenfall och Capio, och lett tillgänglighetsarbetet på Svensk Fastighetsförmedling — gjort en plattform som tusentals människor använder varje dag användbar för alla, inte bara för de flesta.',
       'Numera tar jag egna uppdrag. Jag arbetar på svenska, engelska och serbiska, från Stockholm.',
       'När jag inte sitter framför en skärm tränar och instruerar jag brasiliansk jiu-jitsu, vilket visar sig vara utmärkt träning i att tålmodigt förklara komplicerade saker för folk som är övertygade om att de redan förstått.'
@@ -139,7 +139,7 @@ const en: Site = {
     eyebrow: '03 — About',
     title: 'The hardest part of this job was never the code.',
     paragraphs: [
-      "I've spent twelve years building frontend — React, TypeScript, Next.js — across agencies and product companies. Somewhere in the middle of that I noticed that the projects that went badly rarely failed on technical grounds. They failed because nobody sat down with the client early enough to work out what they were actually trying to do.",
+      "I've spent twelve years building frontend across agencies and product companies. Somewhere in the middle of that I noticed that the projects that went badly rarely failed on technical grounds. They failed because nobody sat down with the client early enough to work out what they were actually trying to do.",
       "So that became the thing I got good at. I can go deep enough with engineers to be useful, and I can sit across from a stakeholder and explain a technical trade-off in terms of what it costs and what it buys them. Most of my best work has happened in that gap.",
       "I've built e-commerce for Urbanears, Marshall and Plantagen, enterprise platforms for Swedbank Pay, Vattenfall and Capio, and led the accessibility work at Svensk Fastighetsförmedling — making a platform that thousands of people use every day work for all of them, not just most of them.",
       "These days I take on my own clients. I work in Swedish, English and Serbian, out of Stockholm.",

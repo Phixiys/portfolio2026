@@ -64,7 +64,7 @@ const sv: Site = {
   ],
   work: {
     eyebrow: '02 — Erfarenhet',
-    title: 'Elva år, åtta team',
+    title: 'Tolv år, åtta team',
     intro: 'Senior frontend inom fastighet, SaaS, e-handel och enterprise. Senaste först.',
   },
   about: {
@@ -132,7 +132,7 @@ const en: Site = {
   ],
   work: {
     eyebrow: '02 — Experience',
-    title: 'Eleven years, eight teams',
+    title: 'Twelve years, eight teams',
     intro: 'Senior frontend across real estate, SaaS, commerce and enterprise. Most recent first.',
   },
   about: {

@@ -56,7 +56,7 @@ const sv: Site = {
   eyebrow: 'Senior frontendutvecklare · Stockholm, SE',
   heroFinalText: 'Frontendutveckling med öga för detaljer.',
   heroLead:
-    'Senior frontend-utvecklare i Stockholm. Tolv år av React, TypeScript och det betydligt svårare problemet: att lista ut vad kunden faktiskt behöver.',
+    'Senior frontend-utvecklare i Stockholm med 12 års erfarenhet av att bygga skalbara webbapplikationer och lösa komplexa användarutmaningar. Specialitet: att förstå vad kunder behöver, inte bara vad de frågar om.',
   stats: [
     { value: '11', suffix: '+', label: 'År i branschen' },
     { value: '8', suffix: '', label: 'Företag' },
@@ -124,7 +124,7 @@ const en: Site = {
   eyebrow: 'Senior Frontend Engineer · Stockholm, SE',
   heroFinalText: 'Frontend engineering with an eye for detail.',
   heroLead:
-    "Senior frontend developer in Stockholm. Twelve years of JavaScript and the far harder problem of working out what a client actually needs.",
+    "Senior frontend developer in Stockholm with 12 years of experience building scalable web applications and solving complex user challenges. Specialty: understanding what customers actually need, not just what they ask for.",
   stats: [
     { value: '11', suffix: '+', label: 'Years shipping' },
     { value: '8', suffix: '', label: 'Companies' },
